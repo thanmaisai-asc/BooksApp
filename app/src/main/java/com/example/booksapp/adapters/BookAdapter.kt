@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.booksapp.databinding.ItemLayoutBinding
-import com.example.booksapp.models.UsersItem
+import com.example.booksapp.models.Data
 
-class RvAdapter (private val userList: List<UsersItem>): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
+class BookAdapter(private val bookList: List<Data>): RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -21,16 +19,19 @@ class RvAdapter (private val userList: List<UsersItem>): RecyclerView.Adapter<Rv
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return bookList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = userList[position]
-        holder.binding.apply{
-            tvId.text = "Id: ${currentItem.id}"
-            tvUserId.text = "User Id: ${currentItem.userId}"
-            tvTitle.text = "Title: ${currentItem.title}"
-            tvBody.text = "Body: ${currentItem.body}"
+        val currentItem = bookList[position]
+        holder.binding.apply {
+            tvId.text = "ID: ${currentItem.id}"
+            tvTitle.text = "Title: ${currentItem.Title}"
+            tvPublisher.text = "Publisher: ${currentItem.Publisher}"
+            tvYear.text = "Year: ${currentItem.Year}"
+            tvISBN.text = "ISBN: ${currentItem.ISBN}"
         }
     }
+
+
 }

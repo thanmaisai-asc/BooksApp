@@ -1,10 +1,12 @@
 package com.example.booksapp
 
-import com.example.booksapp.models.Users
+//import com.example.booksapp.models.Books
+import com.example.booksapp.models.Data
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface ApiInterface {
-    @GET("/posts")
-    suspend fun getAllUsers():Response<Users>
+    @GET("books")
+    suspend fun getAllBooks(): Response<List<Data>>
 }
+
